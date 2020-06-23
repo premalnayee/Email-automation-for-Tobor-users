@@ -1,0 +1,5 @@
+{
+	"CreateQueueName":"Create Users",
+	"UpdateQueueName":"Update Users",
+	"DeleteQueueName":"Delete Users"
+}
