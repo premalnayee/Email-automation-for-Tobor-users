@@ -1,0 +1,7 @@
+First Name	{0}
+Last Name	{1}
+Address		{2}
+Telephone	{3}
+Email		{4}
+Content Preference	{5}
+Interval		{6}
