@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Send_User_email" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="906,1843" sap2010:WorkflowViewState.IdRef="Send_User_email_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Send_User_email" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="906,1965" sap2010:WorkflowViewState.IdRef="Send_User_email_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="23">
+    <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -24,6 +24,7 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -47,20 +48,21 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send_User_email" sap:VirtualizedContainerService.HintSize="520,1638" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send_User_email" sap:VirtualizedContainerService.HintSize="520,1800" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="InsertUsersDT" />
+      <Variable x:TypeArguments="njl:JObject" Name="EmailConfig" />
+      <Variable x:TypeArguments="x:String" Name="SendingEmail" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Deserialize JSON - Sequence" sap:VirtualizedContainerService.HintSize="478,271" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Deserialize JSON - Sequence" sap:VirtualizedContainerService.HintSize="478,371" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="emailConfigStr" />
         <Variable x:TypeArguments="x:Int32" Name="getMailPort" />
-        <Variable x:TypeArguments="njl:JObject" Name="EmailConfig" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -69,6 +71,14 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:ReadTextFile Content="[emailConfigStr]" DisplayName="Read Text File" FileName="config\email_config.json" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
       <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[EmailConfig]" JsonString="[emailConfigStr]" />
+      <Assign sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[SendingEmail]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[EmailConfig("SendingEmailAddress").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
     </Sequence>
     <Sequence DisplayName="Read CSV - Sequence" sap:VirtualizedContainerService.HintSize="478,244" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
@@ -78,7 +88,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[InsertUsersDT]" Delimitator="Comma" DisplayName="Read CSV" FilePath="database\Insert these users.csv" sap:VirtualizedContainerService.HintSize="334,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
     </Sequence>
-    <Sequence DisplayName="Email - Sequence" sap:VirtualizedContainerService.HintSize="478,951" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Email - Sequence" sap:VirtualizedContainerService.HintSize="478,1013" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataRow" Name="rowOfInsert" />
         <Variable x:TypeArguments="x:String" Name="FirstName" />
@@ -88,6 +98,8 @@
         <Variable x:TypeArguments="x:String" Name="ContentPreferences" />
         <Variable x:TypeArguments="x:String" Name="Interval" />
         <Variable x:TypeArguments="x:String" Name="createUserEmailStr" />
+        <Variable x:TypeArguments="x:String" Name="Email" />
+        <Variable x:TypeArguments="x:String" Name="MessageBody" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -95,9 +107,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:ReadTextFile Content="[createUserEmailStr]" DisplayName="Read Text File" FileName="config\createUserEmail.txt" sap:VirtualizedContainerService.HintSize="436,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="436,284" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign DisplayName="Extract fields from DataTable - Multiple Assign" sap:VirtualizedContainerService.HintSize="436,346" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
         <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="sd:DataRow">[rowOfInsert]</OutArgument>
@@ -111,7 +123,7 @@
                 <OutArgument x:TypeArguments="x:String">[FirstName]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[rowOfInsert(0).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[rowOfInsert("First Name").ToString]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -119,7 +131,7 @@
                 <OutArgument x:TypeArguments="x:String">[LastName]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[rowOfInsert(1).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[rowOfInsert("Last Name").ToString]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -127,7 +139,7 @@
                 <OutArgument x:TypeArguments="x:String">[Address]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[rowOfInsert(2).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[rowOfInsert("Address").ToString.Replace(", ", "," + Environment.NewLine + vbTab + vbTab )]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -135,7 +147,7 @@
                 <OutArgument x:TypeArguments="x:String">[Telephone]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[rowOfInsert(3).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[rowOfInsert("Telephone").ToString]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -143,7 +155,7 @@
                 <OutArgument x:TypeArguments="x:String">[ContentPreferences]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[rowOfInsert(4).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[rowOfInsert("Content Preference").ToString]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -151,22 +163,38 @@
                 <OutArgument x:TypeArguments="x:String">[Interval]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[rowOfInsert(5).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[rowOfInsert("Interval").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[SendingEmail]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">[String.Format( "{0}+{1}.{2}@{3}", SendingEmail.Split({"@"}, StringSplitOptions.None)(0), FirstName, LastName,  SendingEmail.Split({"@"}, StringSplitOptions.None)(1) )]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[MessageBody]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[String.Format(createUserEmailStr, FirstName,LastName,Address,Telephone, SendingEmail, ContentPreferences,Interval)]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[String.Format(createUserEmailStr, FirstName,LastName,Address,Telephone,ContentPreferences,Interval)]" />
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[MessageBody]" />
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_2">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[String.Format(createUserEmailStr, &quot;potato&quot;, &quot;banaa&quot;, &quot;add&quot;, &quot;46565&quot;, &quot;fdsf&quot;, &quot;lala&quot;, &quot;daily&quot;)]" DisplayName="Send SMTP Mail Message" Email="[EmailConfig(&quot;UserName&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="[EmailConfig(&quot;UserName&quot;).ToString]" Port="[Integer.Parse(EmailConfig(&quot;sendMailPort&quot;).ToString)]" SecureConnection="Auto" Server="[EmailConfig(&quot;sendMailServer&quot;).ToString]" Subject="Example Registration" To="[EmailConfig(&quot;SendingEmailAddress&quot;).ToString]">
+            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[String.Format(createUserEmailStr, FirstName,LastName,Address,Telephone, SendingEmail, ContentPreferences,Interval)]" DisplayName="Send SMTP Mail Message" Email="[EmailConfig(&quot;UserName&quot;).ToString]" EnableSSL="True" From="[EmailConfig(&quot;UserName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="[EmailConfig(&quot;Password&quot;).ToString]" Port="[Integer.Parse(EmailConfig(&quot;sendMailPort&quot;).ToString)]" SecureConnection="Auto" Server="[EmailConfig(&quot;sendMailServer&quot;).ToString]" Subject="Example Registration" To="[SendingEmail]">
               <ui:SendMail.Files>
                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
               </ui:SendMail.Files>
