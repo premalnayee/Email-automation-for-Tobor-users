@@ -7,7 +7,8 @@
     "UiPath.Mail.Activities": "[1.8.5]",
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[20.4.1]",
-    "UiPath.WebAPI.Activities": "[1.4.5]"
+    "UiPath.WebAPI.Activities": "[1.4.5]",
+    "UiPathTeam.ExtractDataTablesFromHTML.Activities": "[1.0.3]"
   },
   "webServices": [],
   "schemaVersion": "4.0",

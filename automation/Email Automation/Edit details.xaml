@@ -18,7 +18,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>906,2139</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>906,2450</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Imitate_user_emails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -74,7 +74,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Imitate_user_emails" sap:VirtualizedContainerService.HintSize="701,1934" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Imitate_user_emails" sap:VirtualizedContainerService.HintSize="701,2245" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(Of String)]" Name="ContentPreferences" />
       <Variable x:TypeArguments="njl:JObject" Name="EmailConfig" />
@@ -89,6 +89,18 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Deserialize JSON - Sequence" sap:VirtualizedContainerService.HintSize="659,271" sap2010:WorkflowViewState.IdRef="Sequence_11">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="EmailConfigStr" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadTextFile Content="[EmailConfigStr]" DisplayName="Read Text File" FileName="config\email_config.json" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[EmailConfig]" JsonString="[EmailConfigStr]" />
+    </Sequence>
     <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="659,1100" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Enumerable.Range(0, quantity)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Int32">
@@ -96,9 +108,6 @@
             <DelegateInArgument x:TypeArguments="x:Int32" Name="index" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="623,966" sap2010:WorkflowViewState.IdRef="Sequence_5">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="EmailAddress" />
-            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,6 +176,9 @@
               </Sequence>
             </Sequence>
             <Sequence DisplayName="Create Email Address for each - Sequence" sap:VirtualizedContainerService.HintSize="581,214" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="EmailAddress" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -186,7 +198,7 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:BuildDataTable DataTable="[randomUsersTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="659,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;First_x0020_Name&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;128&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Last_x0020_Name&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;128&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Address&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Telephone&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;32&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Content_x0020_Preference&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;32&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Interval&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;32&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:BuildDataTable DataTable="[randomUsersTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="659,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;First_x0020_Name&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;128&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last_x0020_Name&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;128&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Address&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Telephone&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;32&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email_x0020_Address&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;150&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Content_x0020_Preference&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;64&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Interval&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;32&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
     <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="659,248" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Enumerable.Range(0, quantity)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Int32">
@@ -199,13 +211,13 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{FirstNames(index), LastNames(index), Addresses(index), PhoneNumbers(index), ContentPreferences(index), ContentFrequency}]" DataTable="[randomUsersTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{FirstNames(index), LastNames(index), Addresses(index), PhoneNumbers(index), EmailAddresses(index), ContentPreferences(index), ContentFrequency}]" DataTable="[randomUsersTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
     <ui:OutputDataTable DataTable="[randomUsersTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="659,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[tempDataTable]" />
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="659,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[tempDataTable]" />
-    <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[randomUsersTable]" Delimitator="Comma" DisplayName="Write CSV" FilePath="database\Insert these users.csv" sap:VirtualizedContainerService.HintSize="659,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" />
+    <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[randomUsersTable]" Delimitator="Comma" DisplayName="Write CSV" FilePath="database\database.csv" sap:VirtualizedContainerService.HintSize="659,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" />
   </Sequence>
 </Activity>

@@ -128,6 +128,17 @@
         "C:\\Users\\premal\\.nuget\\packages\\uipath.webapi.activities/1.4.5\\lib/net452/UiPath.Web.dll"
       ],
       "Path": "C:\\Users\\premal\\.nuget\\packages\\uipath.webapi.activities\\1.4.5"
+    },
+    {
+      "Package": {
+        "Id": "UiPathTeam.ExtractDataTablesFromHTML.Activities",
+        "Version": "1.0.3"
+      },
+      "Assemblies": [
+        "C:\\Users\\premal\\.nuget\\packages\\htmlagilitypack/1.8.7\\lib/Net45/HtmlAgilityPack.dll",
+        "C:\\Users\\premal\\.nuget\\packages\\uipathteam.extractdatatablesfromhtml.activities/1.0.3\\lib/net46/UiPathTeam.ExtractDataTablesFromHTML.Activities.dll"
+      ],
+      "Path": "C:\\Users\\premal\\.nuget\\packages\\uipathteam.extractdatatablesfromhtml.activities\\1.0.3"
     }
   ],
   "Conflicts": [],
@@ -165,6 +176,11 @@
     "Extended.Wpf.Toolkit": {
       "Id": "Extended.Wpf.Toolkit",
       "Version": "2.8.0",
+      "Dependencies": []
+    },
+    "HtmlAgilityPack": {
+      "Id": "HtmlAgilityPack",
+      "Version": "1.8.7",
       "Dependencies": []
     },
     "Humanizer.Core": {
@@ -440,6 +456,16 @@
           "Item2": "[106.3.1, )"
         }
       ]
+    },
+    "UiPathTeam.ExtractDataTablesFromHTML.Activities": {
+      "Id": "UiPathTeam.ExtractDataTablesFromHTML.Activities",
+      "Version": "1.0.3",
+      "Dependencies": [
+        {
+          "Item1": "HtmlAgilityPack",
+          "Item2": "[1.8.7, )"
+        }
+      ]
     }
   },
   "AllPackages": [
@@ -507,6 +533,16 @@
         "C:\\Users\\premal\\.nuget\\packages\\extended.wpf.toolkit\\2.8.0\\lib\\net40\\Xceed.Wpf.Toolkit.dll"
       ],
       "Path": "C:\\Users\\premal\\.nuget\\packages\\extended.wpf.toolkit\\2.8.0"
+    },
+    {
+      "Package": {
+        "Id": "HtmlAgilityPack",
+        "Version": "1.8.7"
+      },
+      "Assemblies": [
+        "C:\\Users\\premal\\.nuget\\packages\\htmlagilitypack\\1.8.7\\lib\\Net45\\HtmlAgilityPack.dll"
+      ],
+      "Path": "C:\\Users\\premal\\.nuget\\packages\\htmlagilitypack\\1.8.7"
     },
     {
       "Package": {
@@ -778,6 +814,16 @@
         "C:\\Users\\premal\\.nuget\\packages\\uipath.webapi.activities\\1.4.5\\lib\\net452\\UiPath.Web.dll"
       ],
       "Path": "C:\\Users\\premal\\.nuget\\packages\\uipath.webapi.activities\\1.4.5"
+    },
+    {
+      "Package": {
+        "Id": "UiPathTeam.ExtractDataTablesFromHTML.Activities",
+        "Version": "1.0.3"
+      },
+      "Assemblies": [
+        "C:\\Users\\premal\\.nuget\\packages\\uipathteam.extractdatatablesfromhtml.activities\\1.0.3\\lib\\net46\\UiPathTeam.ExtractDataTablesFromHTML.Activities.dll"
+      ],
+      "Path": "C:\\Users\\premal\\.nuget\\packages\\uipathteam.extractdatatablesfromhtml.activities\\1.0.3"
     }
   ]
 }

@@ -103,6 +103,15 @@
           }
         }
       },
+      "HtmlAgilityPack/1.8.7": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/_._": {}
+        },
+        "runtime": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        }
+      },
       "Humanizer.Core/2.4.2": {
         "type": "package",
         "compile": {
@@ -1005,6 +1014,18 @@
             "locale": "zh-CN"
           }
         }
+      },
+      "UiPathTeam.ExtractDataTablesFromHTML.Activities/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack": "1.8.7"
+        },
+        "compile": {
+          "lib/net46/_._": {}
+        },
+        "runtime": {
+          "lib/net46/UiPathTeam.ExtractDataTablesFromHTML.Activities.dll": {}
+        }
       }
     }
   },
@@ -1118,6 +1139,54 @@
         "lib/net40/sv/Xceed.Wpf.AvalonDock.resources.dll",
         "lib/net40/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll",
         "tools/install.ps1"
+      ]
+    },
+    "HtmlAgilityPack/1.8.7": {
+      "sha512": "BHAehz9emDbk6XeSeSV3/UcIj64/o2SMfprRbG7f/EsVqEkkHNPMXpsKhxfOed9h1lVl78Y+3p2q5ET2NByKOw==",
+      "type": "package",
+      "path": "htmlagilitypack/1.8.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "htmlagilitypack.1.8.7.nupkg.sha512",
+        "htmlagilitypack.nuspec",
+        "lib/Net20/HtmlAgilityPack.dll",
+        "lib/Net20/HtmlAgilityPack.pdb",
+        "lib/Net20/HtmlAgilityPack.xml",
+        "lib/Net40-client/HtmlAgilityPack.dll",
+        "lib/Net40-client/HtmlAgilityPack.pdb",
+        "lib/Net40-client/HtmlAgilityPack.xml",
+        "lib/Net40/HtmlAgilityPack.XML",
+        "lib/Net40/HtmlAgilityPack.dll",
+        "lib/Net40/HtmlAgilityPack.pdb",
+        "lib/Net45/HtmlAgilityPack.XML",
+        "lib/Net45/HtmlAgilityPack.dll",
+        "lib/Net45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.XML",
+        "lib/NetCore45/HtmlAgilityPack.dll",
+        "lib/NetCore45/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.3/HtmlAgilityPack.dll",
+        "lib/netstandard1.3/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.xml",
+        "lib/netstandard1.6/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.6/HtmlAgilityPack.dll",
+        "lib/netstandard1.6/HtmlAgilityPack.pdb",
+        "lib/netstandard1.6/HtmlAgilityPack.xml",
+        "lib/netstandard2.0/HtmlAgilityPack.deps.json",
+        "lib/netstandard2.0/HtmlAgilityPack.dll",
+        "lib/netstandard2.0/HtmlAgilityPack.pdb",
+        "lib/netstandard2.0/HtmlAgilityPack.xml",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.XML",
+        "lib/uap10.0/HtmlAgilityPack.dll",
+        "lib/uap10.0/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.pri"
       ]
     },
     "Humanizer.Core/2.4.2": {
@@ -1900,6 +1969,17 @@
         "uipath.webapi.activities.1.4.5.nupkg.sha512",
         "uipath.webapi.activities.nuspec"
       ]
+    },
+    "UiPathTeam.ExtractDataTablesFromHTML.Activities/1.0.3": {
+      "sha512": "NgnRYB/VSmkciFsffjzHFWycR887/VuzLHxLljwzaDM5KoirVIW8VBMeMJ+7FFYUHO2S7RZtq1W6eIqTXSzXdg==",
+      "type": "package",
+      "path": "uipathteam.extractdatatablesfromhtml.activities/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net46/UiPathTeam.ExtractDataTablesFromHTML.Activities.dll",
+        "uipathteam.extractdatatablesfromhtml.activities.1.0.3.nupkg.sha512",
+        "uipathteam.extractdatatablesfromhtml.activities.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1909,7 +1989,8 @@
       "UiPath.Mail.Activities >= 1.8.5 <= 1.8.5",
       "UiPath.System.Activities >= 20.4.0 <= 20.4.0",
       "UiPath.UIAutomation.Activities >= 20.4.1 <= 20.4.1",
-      "UiPath.WebAPI.Activities >= 1.4.5 <= 1.4.5"
+      "UiPath.WebAPI.Activities >= 1.4.5 <= 1.4.5",
+      "UiPathTeam.ExtractDataTablesFromHTML.Activities >= 1.0.3 <= 1.0.3"
     ]
   },
   "packageFolders": {
@@ -1950,9 +2031,23 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[1.4.5, 1.4.5]"
+          },
+          "UiPathTeam.ExtractDataTablesFromHTML.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.3, 1.0.3]"
           }
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HtmlAgilityPack 1.8.7' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
+      "libraryId": "HtmlAgilityPack"
+    }
+  ]
 }
