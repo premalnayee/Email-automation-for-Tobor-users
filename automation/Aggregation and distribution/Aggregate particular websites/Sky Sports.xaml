@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>586,2014</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>906,2014</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sky_Sports_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -94,9 +94,9 @@
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,837" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="ArticleTitle" />
-                      <Variable x:TypeArguments="x:String" Name="Website">
+                      <Variable x:TypeArguments="x:String" Name="Content">
                         <Variable.Default>
-                          <Literal x:TypeArguments="x:String">Sky Sports</Literal>
+                          <Literal x:TypeArguments="x:String">Sport</Literal>
                         </Variable.Default>
                       </Variable>
                     </Sequence.Variables>
@@ -111,7 +111,7 @@
                         <OutArgument x:TypeArguments="x:String">[HRef]</OutArgument>
                       </ui:GetAttribute.Result>
                       <ui:GetAttribute.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="091a3693-cf9a-4e00-a26d-d7c886a1f8c5" InformativeScreenshot="df50947cc129f2eba84c3a86eea91511" Selector="&lt;html app='chrome.exe' title='Google News - Sky Sports - Top Stories' /&gt;&#xD;&#xA;&lt;webctrl tag='A' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;a' idx='{{index}}' /&gt;&#xD;&#xA;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="091a3693-cf9a-4e00-a26d-d7c886a1f8c5" InformativeScreenshot="df50947cc129f2eba84c3a86eea91511" Selector="&lt;html app='chrome.exe' title='Google News - Sky Sports - Top Stories' /&gt;&#xA;&lt;webctrl tag='A' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;a' idx='{{index}}' /&gt;&#xA;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -132,7 +132,7 @@
                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[HRef]" />
                     <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
                       <ui:GetValue.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bd8e13cc-3c94-43b8-bbca-fa4c36d2b36a" InformativeScreenshot="16500b0f3f9d95708604e41ac8ec9b7e" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl idx='{{index}}' tag='H3' /&gt;&#xD;&#xA;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bd8e13cc-3c94-43b8-bbca-fa4c36d2b36a" InformativeScreenshot="16500b0f3f9d95708604e41ac8ec9b7e" Selector="&lt;html app='chrome.exe' /&gt;&#xA;&lt;webctrl idx='{{index}}' tag='H3' /&gt;&#xA;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -146,7 +146,7 @@
                       </ui:GetValue.Value>
                     </ui:GetValue>
                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[ArticleTitle]" />
-                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{HRef, ArticleTitle, Date.Today.Date.ToString, Website}]" DataTable="[DataTableSports]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{HRef, ArticleTitle, Date.Today.Date.ToString, Content}]" DataTable="[DataTableSports]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
