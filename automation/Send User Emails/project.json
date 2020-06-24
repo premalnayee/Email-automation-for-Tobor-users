@@ -1,9 +1,8 @@
 {
-  "name": "Aggregation and distribution",
-  "description": "Aggregate content from different sites and store to database. Send users content based on their preferences",
+  "name": "Send User Emails",
+  "description": "Look at the Databasese and send out emails based on preferences",
   "main": "Main.xaml",
   "dependencies": {
-    "NewsAPI": "[0.5.0]",
     "UiPath.Excel.Activities": "[2.8.5]",
     "UiPath.Mail.Activities": "[1.8.5]",
     "UiPath.System.Activities": "[20.4.0]",

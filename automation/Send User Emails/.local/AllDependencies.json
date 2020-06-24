@@ -175,18 +175,6 @@
           "lib/Microsoft.VisualStudio.OLE.Interop.dll": {}
         }
       },
-      "NewsAPI/0.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.3"
-        },
-        "compile": {
-          "lib/portable45-net45+win8+wpa81/_._": {}
-        },
-        "runtime": {
-          "lib/portable45-net45+win8+wpa81/NewsAPI.dll": {}
-        }
-      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -1238,19 +1226,6 @@
         "microsoft.visualstudio.ole.interop.nuspec"
       ]
     },
-    "NewsAPI/0.5.0": {
-      "sha512": "e2SIFfVa3CayeFKdGl6XD7Bmtcmom7LPmYA6gfI+sUOQtZxdcrbCBcejWqGxmrWHcBCM/jDcC/F3YE0pZZRryQ==",
-      "type": "package",
-      "path": "newsapi/0.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/portable45-net45+win8+wpa81/NewsAPI.XML",
-        "lib/portable45-net45+win8+wpa81/NewsAPI.dll",
-        "newsapi.0.5.0.nupkg.sha512",
-        "newsapi.nuspec"
-      ]
-    },
     "Newtonsoft.Json/11.0.2": {
       "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
@@ -1930,7 +1905,6 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
-      "NewsAPI >= 0.5.0 <= 0.5.0",
       "UiPath.Excel.Activities >= 2.8.5 <= 2.8.5",
       "UiPath.Mail.Activities >= 1.8.5 <= 1.8.5",
       "UiPath.System.Activities >= 20.4.0 <= 20.4.0",
@@ -1943,20 +1917,15 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "Aggregation and distribution",
-      "projectName": "Aggregation and distribution",
-      "projectPath": "C:\\Users\\premal\\Google Drive\\QAC projects\\Email-automation-for-Tobor-users\\automation\\Aggregation and distribution\\.local",
+      "projectUniqueName": "Send User Emails",
+      "projectName": "Send User Emails",
+      "projectPath": "C:\\Users\\premal\\Google Drive\\QAC projects\\Email-automation-for-Tobor-users\\automation\\Send User Emails\\.local",
       "packagesPath": "C:\\Users\\premal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\premal\\Google Drive\\QAC projects\\Email-automation-for-Tobor-users\\automation\\Aggregation and distribution\\.local"
+      "outputPath": "C:\\Users\\premal\\Google Drive\\QAC projects\\Email-automation-for-Tobor-users\\automation\\Send User Emails\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
-          "NewsAPI": {
-            "include": "Runtime",
-            "target": "Package",
-            "version": "[0.5.0, 0.5.0]"
-          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -1985,14 +1954,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU3034",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NewsAPI 0.5.0' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
-      "libraryId": "NewsAPI"
-    }
-  ]
+  }
 }

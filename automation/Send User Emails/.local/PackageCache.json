@@ -128,17 +128,6 @@
         "C:\\Users\\premal\\.nuget\\packages\\uipath.webapi.activities/1.4.5\\lib/net452/UiPath.Web.dll"
       ],
       "Path": "C:\\Users\\premal\\.nuget\\packages\\uipath.webapi.activities\\1.4.5"
-    },
-    {
-      "Package": {
-        "Id": "NewsAPI",
-        "Version": "0.5.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\premal\\.nuget\\packages\\newsapi/0.5.0\\lib/portable45-net45+win8+wpa81/NewsAPI.dll",
-        "C:\\Users\\premal\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll"
-      ],
-      "Path": "C:\\Users\\premal\\.nuget\\packages\\newsapi\\0.5.0"
     }
   ],
   "Conflicts": [],
@@ -217,16 +206,6 @@
       "Id": "Microsoft.VisualStudio.OLE.Interop",
       "Version": "7.10.6071",
       "Dependencies": []
-    },
-    "NewsAPI": {
-      "Id": "NewsAPI",
-      "Version": "0.5.0",
-      "Dependencies": [
-        {
-          "Item1": "Newtonsoft.Json",
-          "Item2": "[10.0.3, )"
-        }
-      ]
     },
     "Newtonsoft.Json": {
       "Id": "Newtonsoft.Json",
@@ -589,16 +568,6 @@
         "C:\\Users\\premal\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\7.10.6071\\lib\\Microsoft.VisualStudio.OLE.Interop.dll"
       ],
       "Path": "C:\\Users\\premal\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\7.10.6071"
-    },
-    {
-      "Package": {
-        "Id": "NewsAPI",
-        "Version": "0.5.0"
-      },
-      "Assemblies": [
-        "C:\\Users\\premal\\.nuget\\packages\\newsapi\\0.5.0\\lib\\portable45-net45+win8+wpa81\\NewsAPI.dll"
-      ],
-      "Path": "C:\\Users\\premal\\.nuget\\packages\\newsapi\\0.5.0"
     },
     {
       "Package": {
