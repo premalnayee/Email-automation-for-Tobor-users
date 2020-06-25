@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>594,1651</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>906,1696</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Create_Emails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -61,7 +61,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Take an email message, extracts the fields and creates users into database it expects the email template to stay the same" DisplayName="Read_Create_Emails" sap:VirtualizedContainerService.HintSize="604,1446" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Take an email message, extracts the fields and creates users into database it expects the email template to stay the same.&#xD;&#xA;&#xD;&#xA;The EmailFields array stores all the fields in the following order: First Name, Last Name, Address, Telephone, Email. Content Preference, Interval" DisplayName="Read_Create_Emails" sap:VirtualizedContainerService.HintSize="604,1491" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="MessageBody" />
       <Variable x:TypeArguments="s:String[]" Name="MessageBodyArray" />

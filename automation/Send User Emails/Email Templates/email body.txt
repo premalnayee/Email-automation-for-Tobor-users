@@ -1,5 +1,7 @@
-Hi {},
+Hi {0},
 
-Have a look at the {} content we have aggregated from multiple websites.
+Have a look at the {1} content we have aggregated from multiple websites.
+
+{2}
 
 Tobor INC
