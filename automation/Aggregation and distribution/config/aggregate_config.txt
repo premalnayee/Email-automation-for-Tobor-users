@@ -1,4 +1,5 @@
 {
+"GoogleNews":"https://news.google.com/",
 "SkySports":"https://news.google.com/publications/CAAqBwgKMNiwmAsw77qwAw?oc=3&ceid=GB:en",
 "BBCSports":"https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSkwyMHZNRGh5TW13MEVnVmxiaTFIUWlnQVAB?oc=3&ceid=GB:en",
 "YahooSports":"https://news.google.com/publications/CAAiEJlZGop0ZYZKK7ZjNsNbmEkqFAgKIhCZWRqKdGWGSiu2YzbDW5hJ?oc=3&ceid=GB:en"
