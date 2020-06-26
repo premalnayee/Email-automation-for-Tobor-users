@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sky_Sports" this:Sky_Sports.WebSiteURL="https://news.google.com/publications/CAAiEJlZGop0ZYZKK7ZjNsNbmEkqFAgKIhCZWRqKdGWGSiu2YzbDW5hJ?oc=3&amp;ceid=GB:en" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sky_Sports" this:Sky_Sports.WebSiteURL="https://news.google.com/publications/CAAqLQgKIidDQklTRndnTWFoTUtFV041WTJ4cGJtZDNaV1ZyYkhrdVkyOXRLQUFQAQ?oc=3&amp;ceid=GB:en" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="WebSiteURL" Type="InArgument(x:String)" />
     <x:Property Name="DataTableArticles" Type="InArgument(sd:DataTable)" />
@@ -36,7 +36,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -59,13 +59,14 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Yahoo Sports" sap:VirtualizedContainerService.HintSize="847,1978" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Cycling Weekly" sap:VirtualizedContainerService.HintSize="847,1978" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="WebSiteName">
         <Variable.Default>
-          <Literal x:TypeArguments="x:String">Yahoo Sports</Literal>
+          <Literal x:TypeArguments="x:String">Cycling Weekly</Literal>
         </Variable.Default>
       </Variable>
     </Sequence.Variables>
@@ -100,7 +101,11 @@
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="693,1452" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="ArticleTitle" />
-                      <Variable x:TypeArguments="x:String" Default="Sport" Name="Content" />
+                      <Variable x:TypeArguments="x:String" Name="Content">
+                        <Variable.Default>
+                          <Literal x:TypeArguments="x:String">Hobbies</Literal>
+                        </Variable.Default>
+                      </Variable>
                       <Variable x:TypeArguments="x:Int32" Name="rowIndex" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
@@ -115,7 +120,7 @@
                             <OutArgument x:TypeArguments="x:String">[HRef]</OutArgument>
                           </ui:GetAttribute.Result>
                           <ui:GetAttribute.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="091a3693-cf9a-4e00-a26d-d7c886a1f8c5" InformativeScreenshot="a89b7b1c392c1e13d7e9f4548c286e42" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl isleaf='1' tag='A' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;a' idx='{{index}}' /&gt;&#xD;&#xA;">
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="091a3693-cf9a-4e00-a26d-d7c886a1f8c5" InformativeScreenshot="df50947cc129f2eba84c3a86eea91511" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl isleaf='1' tag='A' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;a' idx='{{index}}' /&gt;&#xD;&#xA;">
                               <ui:Target.TimeoutMS>
                                 <InArgument x:TypeArguments="x:Int32" />
                               </ui:Target.TimeoutMS>
@@ -155,7 +160,7 @@
                       <TryCatch.Try>
                         <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
                           <ui:GetValue.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bd8e13cc-3c94-43b8-bbca-fa4c36d2b36a" InformativeScreenshot="16500b0f3f9d95708604e41ac8ec9b7e" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl tag='H3' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;h3' idx='{{index}}' /&gt;&#xD;&#xA;">
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bd8e13cc-3c94-43b8-bbca-fa4c36d2b36a" InformativeScreenshot="16500b0f3f9d95708604e41ac8ec9b7e" Selector="&lt;html app='chrome.exe' /&gt;&#xD;&#xA;&lt;webctrl tag='H3' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;h3' idx='1' /&gt;&#xD;&#xA;">
                               <ui:Target.TimeoutMS>
                                 <InArgument x:TypeArguments="x:Int32" />
                               </ui:Target.TimeoutMS>
@@ -204,7 +209,7 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Found duplicate title names in &quot;+WebSiteName+&quot; , not the end of the world, if issue persists a lot, then conside looking at the scrape xaml&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Found duplicate title names in &quot;+WebSiteName+&quot; , not the end of the world, if issue persists a lot, then consider looking at the scrape xaml&quot;]" />
                       </If.Else>
                     </If>
                   </Sequence>

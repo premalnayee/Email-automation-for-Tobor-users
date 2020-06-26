@@ -1,6 +1,36 @@
 {
-"GoogleNews":"https://news.google.com/",
-"SkySports":"https://news.google.com/publications/CAAqBwgKMNiwmAsw77qwAw?oc=3&ceid=GB:en",
-"BBCSports":"https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSkwyMHZNRGh5TW13MEVnVmxiaTFIUWlnQVAB?oc=3&ceid=GB:en",
-"YahooSports":"https://news.google.com/publications/CAAiEJlZGop0ZYZKK7ZjNsNbmEkqFAgKIhCZWRqKdGWGSiu2YzbDW5hJ?oc=3&ceid=GB:en"
+"Google News":"https://news.google.com/",
+"SiteName":[
+	"Sky Sports",
+	"BBC Sport",
+	"Yahoo Sports",
+	"TechRadar",
+	"MIT Tech Review",
+	"TechCrunch",
+	"Cycling Weekly",
+	"Motorcycle News",
+	"DIY Magazine"
+	],
+"Urls":	[
+	"https://news.google.com/publications/CAAqBwgKMNiwmAsw77qwAw?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAqKggKIiRDQklTRlFnTWFoRUtEMkppWXk1amJ5NTFheTl6Y0c5eWRDZ0FQAQ?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAiEJlZGop0ZYZKK7ZjNsNbmEkqFAgKIhCZWRqKdGWGSiu2YzbDW5hJ?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAqLAgKIiZDQklTRmdnTWFoSUtFSFJsWTJoeVlXUmhjaTVqYjIwdllYVW9BQVAB?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAqBggKMKH_BjDAXw?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAqBggKMJSBATCxFw?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAqLQgKIidDQklTRndnTWFoTUtFV041WTJ4cGJtZDNaV1ZyYkhrdVkyOXRLQUFQAQ?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAiEN_d0ZL0RlxniTwpt4UOvGIqFAgKIhDf3dGS9EZcZ4k8KbeFDrxi?oc=3&ceid=GB:en",
+	"https://news.google.com/publications/CAAqJAgKIh5DQklTRUFnTWFnd0tDbVJwZVcxaFp5NWpiMjBvQUFQAQ?oc=3&ceid=GB:en"
+	],
+"Workflows":[
+	"Aggregate particular websites\\Sky Sports.xaml",
+	"Aggregate particular websites\\BBC Sport.xaml",
+	"Aggregate particular websites\\Yahoo Sports.xaml",
+	"Aggregate particular websites\\TechRadar.xaml",
+	"Aggregate particular websites\\MIT Tech Review.xaml",
+	"Aggregate particular websites\\TechCrunch.xaml",
+	"Aggregate particular websites\\Cycling Weekly.xaml",
+	"Aggregate particular websites\\Motorcycle News.xaml",
+	"Aggregate particular websites\\DIY Magazine.xaml"
+	]
 }
