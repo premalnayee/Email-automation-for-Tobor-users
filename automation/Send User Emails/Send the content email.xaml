@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>787,2768</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>787,2749</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Send_the_content_email_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -68,7 +68,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send_the_content_email" sap:VirtualizedContainerService.HintSize="718,2603" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send_the_content_email" sap:VirtualizedContainerService.HintSize="718,2544" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ContentTable" />
       <Variable x:TypeArguments="njl:JObject" Name="EmailConfig" />
@@ -79,19 +79,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Read CSVs and configs - Sequence" sap:VirtualizedContainerService.HintSize="676,957" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Read CSVs and configs - Sequence" sap:VirtualizedContainerService.HintSize="676,962" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Read CSVs - Sequence" sap:VirtualizedContainerService.HintSize="426,343" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence DisplayName="Read CSVs - Sequence" sap:VirtualizedContainerService.HintSize="426,346" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[ContentTable]" Delimitator="Comma" DisplayName="Content Table - Read CSV" FilePath="C:\Users\premal\Google Drive\QAC projects\Email-automation-for-Tobor-users\automation\Aggregation and distribution\content\Content Table.csv" sap:VirtualizedContainerService.HintSize="334,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+        <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[ContentTable]" Delimitator="Comma" DisplayName="Content Table - Read CSV" FilePath="C:\Users\premal\Google Drive\QAC projects\Email-automation-for-Tobor-users\automation\Aggregation and distribution\content\Content Table.csv" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
         <ui:FilterDataTable DataTable="[ContentTable]" DisplayName="Filter Data Table for articles from today" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[ContentTable]" SelectColumnsMode="Remove">
           <ui:FilterDataTable.Filters>
             <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
@@ -112,7 +112,7 @@
           </ui:FilterDataTable.SelectColumns>
         </ui:FilterDataTable>
       </Sequence>
-      <Sequence DisplayName="Deserialize JSON - Sequence" sap:VirtualizedContainerService.HintSize="426,271" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence DisplayName="Deserialize JSON - Sequence" sap:VirtualizedContainerService.HintSize="426,272" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="EmailConfigStr" />
         </Sequence.Variables>
@@ -121,19 +121,19 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ReadTextFile Content="[EmailConfigStr]" DisplayName="Read Text File" FileName="..\Email Automation\config\email_config.json" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+        <ui:ReadTextFile Content="[EmailConfigStr]" DisplayName="Read Text File" FileName="..\Email Automation\config\email_config.json" sap:VirtualizedContainerService.HintSize="384,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
         <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[EmailConfig]" JsonString="[EmailConfigStr]" />
       </Sequence>
-      <Sequence DisplayName="Read Email template - Sequence" sap:VirtualizedContainerService.HintSize="426,171" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence DisplayName="Read Email template - Sequence" sap:VirtualizedContainerService.HintSize="426,172" sap2010:WorkflowViewState.IdRef="Sequence_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ReadTextFile Content="[emailBody]" DisplayName="Read Text File" FileName="Email Templates\email body.txt" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+        <ui:ReadTextFile Content="[emailBody]" DisplayName="Read Text File" FileName="Email Templates\email body.txt" sap:VirtualizedContainerService.HintSize="384,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
       </Sequence>
     </Sequence>
-    <Sequence DisplayName="Send the Content Email - Sequence" sap:VirtualizedContainerService.HintSize="676,1514" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence DisplayName="Send the Content Email - Sequence" sap:VirtualizedContainerService.HintSize="676,1450" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="EmailContent">
           <Variable.Default>
@@ -147,42 +147,38 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Filter DataTable - Flowchart" sap:VirtualizedContainerService.HintSize="634,704" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+      <Flowchart DisplayName="Filter DataTable - Flowchart" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            <av:Point x:Key="ShapeLocation">340,2.5</av:Point>
+            <av:Point x:Key="ShapeLocation">330,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">370,77.5 370,156.5</av:PointCollection>
-            <x:Double x:Key="Height">668.07999999999993</x:Double>
+            <av:PointCollection x:Key="ConnectorLocation">360,77.5 360,116.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <Flowchart.StartNode>
           <x:Reference>__ReferenceID5</x:Reference>
         </Flowchart.StartNode>
-        <FlowDecision x:Name="__ReferenceID5" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-          <FlowDecision.Condition>
-            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ContentPreference.Equals(&quot;Sport&quot;)" />
-          </FlowDecision.Condition>
+        <FlowDecision x:Name="__ReferenceID5" Condition="[ContentPreference.Equals(&quot;Sport&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">330.5,156.5</av:Point>
+              <av:Point x:Key="ShapeLocation">320.5,116.5</av:Point>
               <av:Size x:Key="ShapeSize">79,87</av:Size>
-              <av:PointCollection x:Key="TrueConnector">330.5,200 150,200 150,214.5</av:PointCollection>
-              <av:PointCollection x:Key="FalseConnector">409.5,200 430,200 430,316.5 370,316.5 370,346.5</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">320.5,160 140,160 140,174.5</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">399.5,160 420,160 420,226.5 360,226.5 360,256.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
             <FlowStep x:Name="__ReferenceID2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">50,214.5</av:Point>
-                  <av:Size x:Key="ShapeSize">200,51</av:Size>
+                  <av:Point x:Key="ShapeLocation">40,174.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,52</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:FilterDataTable DataTable="[ContentTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[ContentTableFiltered]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable DataTable="[ContentTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[ContentTableFiltered]" SelectColumnsMode="Keep">
                 <ui:FilterDataTable.Filters>
                   <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                     <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -209,28 +205,25 @@
             </FlowStep>
           </FlowDecision.True>
           <FlowDecision.False>
-            <FlowDecision x:Name="__ReferenceID0" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-              <FlowDecision.Condition>
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ContentPreference.Equals(&quot;Tech&quot;)" />
-              </FlowDecision.Condition>
+            <FlowDecision x:Name="__ReferenceID0" Condition="[ContentPreference.Equals(&quot;Tech&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <av:Point x:Key="ShapeLocation">330.5,346.5</av:Point>
+                  <av:Point x:Key="ShapeLocation">320.5,256.5</av:Point>
                   <av:Size x:Key="ShapeSize">79,87</av:Size>
-                  <av:PointCollection x:Key="TrueConnector">330.5,390 140,390 140,404.5</av:PointCollection>
-                  <av:PointCollection x:Key="FalseConnector">409.5,390 438,390 438,494.695179052754 370,494.695179052754 370,516.5</av:PointCollection>
+                  <av:PointCollection x:Key="TrueConnector">320.5,300 130,300 130,324.5</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">399.5,300 420,300 420,376.5 360,376.5 360,406.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
                 <FlowStep x:Name="__ReferenceID3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">40,404.5</av:Point>
-                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      <av:Point x:Key="ShapeLocation">30,324.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,52</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:FilterDataTable DataTable="[ContentTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[ContentTableFiltered]" SelectColumnsMode="Remove">
+                  <ui:FilterDataTable DataTable="[ContentTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[ContentTableFiltered]" SelectColumnsMode="Remove">
                     <ui:FilterDataTable.Filters>
                       <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                         <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -257,27 +250,24 @@
                 </FlowStep>
               </FlowDecision.True>
               <FlowDecision.False>
-                <FlowDecision x:Name="__ReferenceID1" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ContentPreference.Equals(&quot;Hobbies&quot;)" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID1" Condition="[ContentPreference.Equals(&quot;Hobbies&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <av:Point x:Key="ShapeLocation">330.5,516.5</av:Point>
+                      <av:Point x:Key="ShapeLocation">320.5,406.5</av:Point>
                       <av:Size x:Key="ShapeSize">79,87</av:Size>
-                      <av:PointCollection x:Key="TrueConnector">330.5,560 140,560 140,574.5</av:PointCollection>
+                      <av:PointCollection x:Key="TrueConnector">320.5,450 130,450 130,474.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.True>
                     <FlowStep x:Name="__ReferenceID4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">40,574.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          <av:Point x:Key="ShapeLocation">30,474.5</av:Point>
+                          <av:Size x:Key="ShapeSize">200,52</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:FilterDataTable DataTable="[ContentTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[ContentTableFiltered]" SelectColumnsMode="Remove">
+                      <ui:FilterDataTable DataTable="[ContentTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[ContentTableFiltered]" SelectColumnsMode="Remove">
                         <ui:FilterDataTable.Filters>
                           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                             <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -314,13 +304,13 @@
         <x:Reference>__ReferenceID3</x:Reference>
         <x:Reference>__ReferenceID4</x:Reference>
       </Flowchart>
-      <Sequence sap:VirtualizedContainerService.HintSize="634,678" sap2010:WorkflowViewState.IdRef="Sequence_9">
+      <Sequence sap:VirtualizedContainerService.HintSize="634,682" sap2010:WorkflowViewState.IdRef="Sequence_9">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ContentTableFiltered]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="354,300" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ContentTableFiltered]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="354,301" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
@@ -344,8 +334,8 @@
             </ActivityAction>
           </ui:ForEachRow.Body>
         </ui:ForEachRow>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="354,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[String.Format(emailBody, FirstName, ContentPreference, EmailContent)]" />
-        <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[EmailConfig(&quot;LocalAccount&quot;).ToString]" Body="[String.Format(EmailBody, FirstName, LastName, EmailContent)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="354,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="Content aggregation" To="[EmailAddress]">
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="354,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[String.Format(emailBody, FirstName, ContentPreference, EmailContent)]" />
+        <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[EmailConfig(&quot;LocalAccount&quot;).ToString]" Body="[String.Format(EmailBody, FirstName, LastName, EmailContent)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="354,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="Content aggregation" To="[EmailAddress]">
           <ui:SendOutlookMail.Files>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
           </ui:SendOutlookMail.Files>
