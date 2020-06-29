@@ -1,7 +1,8 @@
 {
-	"CreateQueueName":"Create Users Queue",
-	"UpdateQueueName":"Update Users Queue",
-	"DeleteQueueName":"Delete Users Queue",
+	"CreateQueueName":"Create User Queue",
+	"UpdateQueueName":"Update User Queue",
+	"DeleteQueueName":"Delete User Queue",
 	"SendEmailQueue":"Send Email Queue",
-	"LimitOfUsers":10000
+	"LimitOfUsers":10000,
+	"AggregateQueueName":"Aggregate Sites Queue"
 }
